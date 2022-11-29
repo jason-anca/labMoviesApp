@@ -1,13 +1,13 @@
 import React from "react";
 import PageTemplate from "../components/templateMovieListPage";
-import { getTopRatedMovies } from "../api/tmdb-api";
+import { getPopularTVShows } from "../api/tmdb-api";
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 import AddToFavouritesIcon from '../components/cardIcons/addToFavourites'
 
-const TopRatedMovies = (props) => {
+const PopularTVShows = (props) => {
 
-    const { data, error, isLoading, isError } = useQuery('popular', getTopRatedMovies)
+    const { data, error, isLoading, isError } = useQuery('top rated', getPopularTVShows)
 
     if (isLoading) {
         return <Spinner />
@@ -16,19 +16,19 @@ const TopRatedMovies = (props) => {
     if (isError) {
         return <h1>{error.message}</h1>
     }
-    const movies = data.results;
+    const tvshows = data.results;
 
-    const popular = movies.filter(m => m.favourite)
+    const popular = tvshows.filter(m => m.favourite)
     localStorage.setItem('popular', JSON.stringify(popular))
 
     return (
         <PageTemplate
-            title="Top Rated Movies"
-            movies={movies}
-            action={(movie) => {
-                return <AddToFavouritesIcon movie={movie} />
+            title="Popular TY Shows"
+            shows={tvshows}
+            action={(tvshows) => {
+                return <AddToFavouritesIcon shows={tvshows} />
             }}
         />
     );
 };
-export default TopRatedMovies;
+export default PopularTVShows;
