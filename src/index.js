@@ -11,10 +11,11 @@ import UpcomingPage from './pages/upcomingMoviesPage';
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools'
 import MoviesContextProvider from "./contexts/moviesContext";
+import TVContextProvider from "./contexts/tvContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import PopularMoviesPage from './pages/popularMoviesPage'
 import TopRatedMoviesPage from './pages/topRatedMoviesPage'
-import PopularTVShows from './pages/popularTVShowsPage'
+import PopularTVShowsPage from './pages/popularTVShowsPage'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -32,18 +33,20 @@ const App = () => {
       <BrowserRouter>
         <SiteHeader />
         <MoviesContextProvider>
-          <Routes>
-            <Route path="/reviews/form" element={<AddMovieReviewPage />} />
-            <Route exact path="/movies/favourites" element={<FavouriteMoviesPage />} />
-            <Route path="/movies/:id" element={<MoviePage />} />
-            <Route path="/" element={<HomePage />} />
-            <Route path="*" element={<Navigate to="/" />} />
-            <Route path="/reviews/:id" element={<MovieReviewPage />} />
-            <Route path="/movies/upcoming" element={<UpcomingPage />} />
-            <Route path="/movies/popular" element={<PopularMoviesPage />} />
-            <Route path="/movies/toprated" element={<TopRatedMoviesPage />} />
-            <Route path="/tv/popular" element={<popularTVShowsPage />} />
-          </Routes>
+          <TVContextProvider>
+            <Routes>
+              <Route path="/reviews/form" element={<AddMovieReviewPage />} />
+              <Route exact path="/movies/favourites" element={<FavouriteMoviesPage />} />
+              <Route path="/movies/:id" element={<MoviePage />} />
+              <Route path="/" element={<HomePage />} />
+              <Route path="*" element={<Navigate to="/" />} />
+              <Route path="/reviews/:id" element={<MovieReviewPage />} />
+              <Route path="/movies/upcoming" element={<UpcomingPage />} />
+              <Route path="/tv/popularShows" element={<PopularTVShowsPage />} />
+              <Route path="/movies/popular" element={<PopularMoviesPage />} />
+              <Route path="/movies/toprated" element={<TopRatedMoviesPage />} />
+            </Routes>
+          </TVContextProvider>
         </MoviesContextProvider>
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />

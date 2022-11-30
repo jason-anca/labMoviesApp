@@ -1,5 +1,5 @@
 import React from "react";
-import PageTemplate from "../components/MovieComponents/templateMovieListPage";
+import PageTemplate from "../components/TVComponents/templateTVListPage";
 import { getPopularTVShows } from "../api/tmdb-api";
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
@@ -16,18 +16,18 @@ const PopularTVShows = (props) => {
     if (isError) {
         return <h1>{error.message}</h1>
     }
-    const tvshows = data.results;
+    const tv = data.results;
 
-    const popular = tvshows.filter(m => m.favourite)
+    const popular = tv.filter(m => m.favourite)
     localStorage.setItem('popular', JSON.stringify(popular))
 
     return (
         <PageTemplate
-            title="Popular TY Shows"
-            shows={tvshows}
-            action={(tvshows) => {
-                return <AddToFavouritesIcon shows={tvshows} />
-            }}
+            title="Popular TV Shows"
+            TVs={tv}
+            // action={(tvshows) => {
+            //     return <AddToFavouritesIcon shows={tvshows} />
+            // }}
         />
     );
 };
