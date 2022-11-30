@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import PageTemplate from "../components/templateMovieListPage";
+import PageTemplate from "../components/MovieComponents/templateMovieListPage";
 import {getUpcoming} from '../api/tmdb-api';
 import Spinner from '../components/spinner';
 import MustWatchIcon from '../components/cardIcons/addToMustWatch'
