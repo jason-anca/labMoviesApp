@@ -3,7 +3,7 @@ import PageTemplate from "../components/TVComponents/templateTVListPage";
 import { getPopularTVShows } from "../api/tmdb-api";
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
-import AddToFavouritesIcon from '../components/cardIcons/addToFavourites'
+import AddToFavouritesIconTV from '../components/cardIcons/addToFavouritesIconTV'
 
 const PopularTVShows = (props) => {
 
@@ -18,16 +18,16 @@ const PopularTVShows = (props) => {
     }
     const tv = data.results;
 
-    const popular = tv.filter(m => m.favourite)
-    localStorage.setItem('popular', JSON.stringify(popular))
+    const favourites = tv.filter(m => m.favourite)
+    localStorage.setItem('favourites', JSON.stringify(favourites))
 
     return (
         <PageTemplate
             title="Popular TV Shows"
             TVs={tv}
-            // action={(tvshows) => {
-            //     return <AddToFavouritesIcon shows={tvshows} />
-            // }}
+            action={(tvshows) => {
+                return <AddToFavouritesIconTV tv={tvshows} />
+            }}
         />
     );
 };

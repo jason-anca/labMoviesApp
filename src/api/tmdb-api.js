@@ -182,7 +182,7 @@ export const getTVImages = ({ queryKey }) => {
 //Insert a get tv reviews here.
 // https://api.themoviedb.org/3/tv/{tv_id}/reviews?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1
 
-export const getTVShowReviews = (up) => {
+export const getTVReviews = (up) => {
   return fetch(
     `https://api.themoviedb.org/3/tv/{tv_id}/reviews?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
   ).then((response) => {

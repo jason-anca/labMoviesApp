@@ -56,16 +56,16 @@ const TVDetails = ({ tv }) => {
           icon={<StarRate />}
           label={`${tv.vote_average} (${tv.vote_count}`}
         />
-        <Chip label={`Released: ${tv.release_date}`} />
+        <Chip label={`First Air Date: ${tv.first_air_date}`} />
       </Paper>
       <Paper 
         component="ul" 
         sx={root}
       >
         <li>
-          <Chip label="Production Countries" sx={chip} color="primary" />
+          <Chip label="Origin Country" sx={chip} color="primary" />
         </li>
-        {tv.production_countries.map((c) => (
+        {tv.origin_country.map((c) => (
           <li key={c.name}>
             <Chip label={c.name} sx={chip} />
           </li>

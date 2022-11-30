@@ -60,7 +60,7 @@ export default function TVCard({ tv, action1 }) {
                     <Grid item xs={6}>
                         <Typography variant="h6" component="p">
                             <CalendarIcon fontSize="small" />
-                            {tv.release_date}
+                            {tv.first_air_date}
                         </Typography>
                     </Grid>
                     <Grid item xs={6}>
@@ -73,7 +73,7 @@ export default function TVCard({ tv, action1 }) {
             </CardContent>
             <CardActions disableSpacing>
                 {action(tv)}
-                <Link to={`/tvs/${tv.id}`}>
+                <Link to={`/tv/${tv.id}`}>
                     <Button variant="outlined" size="medium" color="primary">
                         More Info ...
                     </Button>
