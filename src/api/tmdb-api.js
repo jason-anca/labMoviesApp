@@ -166,20 +166,35 @@ export const getTVImages = ({ queryKey }) => {
   const { id } = idPart;
   return fetch(
     `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
-    `https://api.themoviedb.org/3/tv/{tv_id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
-  ).then( (response) => {
+      `https://api.themoviedb.org/3/tv/{tv_id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
+  ).then((response) => {
     if (!response.ok) {
       throw new Error(response.json().message);
     }
     return response.json();
 
   })
-  .catch((error) => {
-    throw error
- });
+    .catch((error) => {
+      throw error
+    });
 };
 
 //Insert a get tv reviews here.
+// https://api.themoviedb.org/3/tv/{tv_id}/reviews?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1
+
+export const getTVShowReviews = (up) => {
+  return fetch(
+    `https://api.themoviedb.org/3/tv/{tv_id}/reviews?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+  ).then((response) => {
+    if (!response.ok) {
+      throw new Error(response.json().message);
+    }
+    return response.json();
+  })
+    .catch((error) => {
+      throw error
+    });
+};
 
 export const getPopularTVShows = (up) => {
   return fetch(
