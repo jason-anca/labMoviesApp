@@ -6,8 +6,6 @@ import ImageListItem from "@mui/material/ImageListItem";
 import { getTVImages } from "../../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../../spinner';
-//import img from '../../images/film-poster-placeholder.png';
-
 
 const TemplateTVPage = ({ tv, children }) => {
   const { data , error, isLoading, isError } = useQuery(
@@ -35,7 +33,7 @@ const TemplateTVPage = ({ tv, children }) => {
             flexWrap: "wrap",
             justifyContent: "space-around",
           }}>
-            {/* <ImageList 
+            <ImageList 
                 cols={1}>
                 {images.map((image) => (
                     <ImageListItem key={image.file_path} cols={1}>
@@ -45,7 +43,7 @@ const TemplateTVPage = ({ tv, children }) => {
                     />
                     </ImageListItem>
                 ))}
-            </ImageList> */}
+            </ImageList>
           </div>
         </Grid>
 
