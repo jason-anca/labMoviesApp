@@ -9,6 +9,8 @@ import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import TVReviews from "../TVReviews"
+import LiveTVIcon from '@mui/icons-material/LiveTv';
+import VideoLibraryIcon from '@mui/icons-material/VideoLibrary'
 
 const root = {
     display: "flex",
@@ -47,10 +49,10 @@ const TVDetails = ({ tv }) => {
         ))}
       </Paper>
       <Paper component="ul" sx={root}>
-        <Chip icon={<AccessTimeIcon />} label={`${tv.runtime} min.`} />
+        <Chip icon={<VideoLibraryIcon/>} label={`Number of Seasons:${tv.number_of_seasons.toLocaleString()}`} />
         <Chip
-          icon={<MonetizationIcon />}
-          label={`${tv.revenue.toLocaleString()}`}
+          icon={<LiveTVIcon />}
+          label={`Number of Episodes: ${tv.number_of_episodes.toLocaleString()}`}
         />
         <Chip
           icon={<StarRate />}
@@ -63,9 +65,9 @@ const TVDetails = ({ tv }) => {
         sx={root}
       >
         <li>
-          <Chip label="Origin Country" sx={chip} color="primary" />
+          <Chip label="Country of Production" sx={chip} color="primary" />
         </li>
-        {tv.origin_country.map((c) => (
+        {tv.production_countries.map((c) => (
           <li key={c.name}>
             <Chip label={c.name} sx={chip} />
           </li>
@@ -85,7 +87,7 @@ const TVDetails = ({ tv }) => {
         Reviews
         </Fab>
       <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-        <TVReviews tv={tv} />
+        {/* <TVReviews tv={tv} /> */}
       </Drawer>
       </>
   );

@@ -6,14 +6,15 @@ import { getTV } from '../api/tmdb-api'
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner'
 
-const TVDetailsPage = (props) => {
+const TVDetailsPage = ( props ) => {
   const { id } = useParams();
 
   const { data: tv, error, isLoading, isError } = useQuery(
-    ["movie", { id: id }],
+    ["tv", { id: id }],
     getTV
   );
-
+    console.log("hello")
+    console.log(id)
   if (isLoading) {
     return <Spinner />;
   }
@@ -31,7 +32,7 @@ const TVDetailsPage = (props) => {
           </PageTemplate>
         </>
       ) : (
-        <p>Waiting for tv details</p>
+        <p>Waiting for TV details</p>
       )}
     </>
   );
