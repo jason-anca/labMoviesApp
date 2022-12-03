@@ -27,12 +27,12 @@ const TVHeader = (props) => {
       </IconButton>
 
       <Typography variant="h4" component="h3">
-        {tv.title}
+        {tv.name}
         <a href={tv.homepage}>
           <HomeIcon color="primary" />
         </a>
         <br />
-        <span sx={{ fontSize: "1.5rem" }}>{`   "${tv.tagline}"`} </span>
+        <span sx={{ fontSize: "1.5rem" }}>{`   "${tv.status}"`} </span>
       </Typography>
 
       <IconButton aria-label="go forward" onClick={() => navigate(+1) } >

@@ -13,8 +13,6 @@ const TVDetailsPage = ( props ) => {
     ["tv", { id: id }],
     getTV
   );
-    console.log("hello")
-    console.log(id)
   if (isLoading) {
     return <Spinner />;
   }

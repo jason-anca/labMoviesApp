@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import PageTemplate from "../components/MovieComponents/templateMovieListPage";
+import PageTemplate from "../components/TVComponents/templateTVListPage";
 import { TVContext } from "../contexts/tvContext";
 import { useQueries } from "react-query";
 import { getTVs } from "../api/tmdb-api";
 import Spinner from '../components/spinner';
-import RemoveFromFavourites from "../components/cardIcons/removeFromFavourites";
+import RemoveFromFavourites from "../components/cardIcons/removeFromFavouritesTV";
 import WriteReview from "../components/cardIcons/writeReview";
 
 const FavouriteTVPage = () => {
@@ -14,7 +14,7 @@ const FavouriteTVPage = () => {
   const favouriteTVQueries = useQueries(
     TVIds.map((tvId) => {
       return {
-        queryKey: ["movie", { id: tvId }],
+        queryKey: ["tv", { id: tvId }],
         queryFn: getTVs,
       };
     })

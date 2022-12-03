@@ -6,6 +6,7 @@ import ImageListItem from "@mui/material/ImageListItem";
 import { getTVImages } from "../../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../../spinner';
+import { FormControlUnstyledContext } from "@mui/base";
 
 const TemplateTVPage = ({ tv, children }) => {
   const { data , error, isLoading, isError } = useQuery(
@@ -20,12 +21,10 @@ const TemplateTVPage = ({ tv, children }) => {
   if (isError) {
     return <h1>{error.message}</h1>;
   }
-  const images = data.posters 
-
+  const images = data.posters
   return (
     <>
       <TVHeader tv={tv} />
-
       <Grid container spacing={5} sx={{ padding: "15px" }}>
         <Grid item xs={3}>
           <div sx={{
