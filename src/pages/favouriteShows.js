@@ -1,32 +1,32 @@
 import React, { useContext } from "react";
 import PageTemplate from "../components/MovieComponents/templateMovieListPage";
-import { MoviesContext } from "../contexts/moviesContext";
+import { TVContext } from "../contexts/tvContext";
 import { useQueries } from "react-query";
-import { getMovie } from "../api/tmdb-api";
+import { getTVs } from "../api/tmdb-api";
 import Spinner from '../components/spinner';
 import RemoveFromFavourites from "../components/cardIcons/removeFromFavourites";
 import WriteReview from "../components/cardIcons/writeReview";
 
-const FavouriteMoviesPage = () => {
-  const {favourites: movieIds } = useContext(MoviesContext);
+const FavouriteTVPage = () => {
+  const {favourites: TVIds } = useContext(TVContext);
 
   // Create an array of queries and run in parallel.
-  const favouriteMovieQueries = useQueries(
-    movieIds.map((movieId) => {
+  const favouriteTVQueries = useQueries(
+    TVIds.map((tvId) => {
       return {
-        queryKey: ["movie", { id: movieId }],
-        queryFn: getMovie,
+        queryKey: ["movie", { id: tvId }],
+        queryFn: getTVs,
       };
     })
   );
   // Check if any of the parallel queries is still loading.
-  const isLoading = favouriteMovieQueries.find((m) => m.isLoading === true);
+  const isLoading = favouriteTVQueries.find((m) => m.isLoading === true);
 
   if (isLoading) {
     return <Spinner />;
   }
 
-  const movies = favouriteMovieQueries.map((q) => {
+  const tv = favouriteTVQueries.map((q) => {
     q.data.genre_ids = q.data.genres.map(g => g.id)
     return q.data
   });
@@ -36,12 +36,12 @@ const FavouriteMoviesPage = () => {
   return (
     <PageTemplate
       title="Favourite Movies"
-      movies={movies}
-      action={(movie) => {
+      TVs={tv}
+      action={(tv) => {
         return (
           <>
-            <RemoveFromFavourites movie={movie} />
-            <WriteReview movie={movie} />
+            <RemoveFromFavourites tv={tv} />
+            <WriteReview tv={tv} />
           </>
         );
       }}
@@ -49,4 +49,4 @@ const FavouriteMoviesPage = () => {
   );
 };
 
-export default FavouriteMoviesPage;
+export default FavouriteTVPage;
