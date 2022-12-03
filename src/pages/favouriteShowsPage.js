@@ -2,20 +2,19 @@ import React, { useContext } from "react";
 import PageTemplate from "../components/TVComponents/templateTVListPage";
 import { TVContext } from "../contexts/tvContext";
 import { useQueries } from "react-query";
-import { getTVs } from "../api/tmdb-api";
+import { getTV } from "../api/tmdb-api";
 import Spinner from '../components/spinner';
 import RemoveFromFavourites from "../components/cardIcons/removeFromFavouritesTV";
 import WriteReview from "../components/cardIcons/writeReview";
 
 const FavouriteTVPage = () => {
-  const {favourites: TVIds } = useContext(TVContext);
+  const {favourites: ids } = useContext(TVContext);
 
-  // Create an array of queries and run in parallel.
   const favouriteTVQueries = useQueries(
-    TVIds.map((tvId) => {
+    ids.map((Id) => {
       return {
-        queryKey: ["tv", { id: tvId }],
-        queryFn: getTVs,
+        queryKey: ["tv", { id: Id }],
+        queryFn: getTV,
       };
     })
   );
@@ -30,7 +29,6 @@ const FavouriteTVPage = () => {
     q.data.genre_ids = q.data.genres.map(g => g.id)
     return q.data
   });
-
   const toDo = () => true;
 
   return (
@@ -40,13 +38,12 @@ const FavouriteTVPage = () => {
       action={(tv) => {
         return (
           <>
-            <RemoveFromFavourites tv={tv} />
-            <WriteReview tv={tv} />
+            <RemoveFromFavourites tv={tv} />         
           </>
         );
       }}
     />
   );
 };
-
+//<WriteReview tv={tv} />
 export default FavouriteTVPage;

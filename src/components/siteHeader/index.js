@@ -27,10 +27,10 @@ const SiteHeader = ({ history }) => {
     { label: "Home", path: "/" },
     { label: "Upcoming Movies", path: "/movies/upcoming" },
     { label: "Favourite Movies", path: "/movies/favourites" },
-    { label: "Favourite Shows", path: "/tv/favourites" },
     { label: "Popular Movies", path: "/movies/popular" },
     { label: "Top Rated Movies", path: "/movies/toprated" },
-    { label: "Popular TV Shows", path: "/tv/popularShows" },
+    { label: "Favourite Shows", path: "/tv/favourites" },
+    { label: "Popular TV Shows", path: "/tv/popularShows" }
   ];
 
   const handleMenuSelect = (pageURL) => {
