@@ -42,7 +42,7 @@ export default function TVCard({ tv, action }) {
                 }
                 title={
                     <Typography variant="h5" component="p">
-                        {tv.title}{" "}
+                        {tv.name}{" "}
                     </Typography>
                 }
             />
