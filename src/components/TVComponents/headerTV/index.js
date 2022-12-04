@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Paper from "@mui/material/Paper";
@@ -6,6 +6,9 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import HomeIcon from "@mui/icons-material/Home";
 import { useNavigate } from "react-router-dom";
+// import { TvShowContext } from "../../contexts/tvShowContext";
+// import { Avatar } from "@mui/material";
+// import { Favorite } from "@mui/icons-material";
 
 const TVHeader = (props) => {
   const tv = props.tv;
@@ -27,12 +30,12 @@ const TVHeader = (props) => {
       </IconButton>
 
       <Typography variant="h4" component="h3">
-        {tv.title}
+        {tv.name}
         <a href={tv.homepage}>
           <HomeIcon color="primary" />
         </a>
         <br />
-        <span sx={{ fontSize: "1.5rem" }}>{`   "${tv.tagline}"`} </span>
+        <span sx={{ fontSize: "1.5rem" }}>{`   "${tv.status}"`} </span>
       </Typography>
 
       <IconButton aria-label="go forward" onClick={() => navigate(+1) } >

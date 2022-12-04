@@ -5,9 +5,10 @@ import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 import AddToFavouritesIconTV from '../components/cardIcons/addToFavouritesIconTV'
 
+
 const PopularTVShows = (props) => {
 
-    const { data, error, isLoading, isError } = useQuery('top rated', getPopularTVShows)
+    const { data, error, isLoading, isError } = useQuery('popularTV', getPopularTVShows)
 
     if (isLoading) {
         return <Spinner />

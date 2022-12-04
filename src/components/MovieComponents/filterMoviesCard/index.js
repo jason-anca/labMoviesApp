@@ -13,7 +13,7 @@ import img from '../../../images/pexels-dziana-hasanbekava-5480827.jpg'
 import { getGenres } from "../../../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from '../../spinner'
-
+import { Paper } from "@mui/material";
 
 const formControl =
 {
@@ -53,11 +53,11 @@ export default function FilterMoviesCard(props) {
     <Card
       sx={{
         maxWidth: 345,
-        backgroundColor: "rgb(204, 204, 0)"
+        background: "#6b4604"
       }}
       variant="outlined">
       <CardContent>
-        <Typography variant="h5" component="h1">
+        <Typography variant="h5" component="h1" sx= {{color: "white"}}>
           <SearchIcon fontSize="large" />
           Filter the movies.
         </Typography>
@@ -95,7 +95,7 @@ export default function FilterMoviesCard(props) {
         title="Filter"
       />
       <CardContent>
-        <Typography variant="h5" component="h1">
+        <Typography variant="h5" component="h1" sx= {{color: "white"}}>
           <SearchIcon fontSize="large" />
           Filter the movies.
           <br />

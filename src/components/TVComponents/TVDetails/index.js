@@ -87,7 +87,7 @@ const TVDetails = ({ tv }) => {
         Reviews
         </Fab>
       <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-        {/* <TVReviews tv={tv} /> */}
+        <TVReviews tv={tv} />
       </Drawer>
       </>
   );
