@@ -9,7 +9,7 @@ const TVReviewPage = (props) => {
 
   return (
     <PageTemplate tv={tv}>
-      <TVReview tv={tv} />
+      <TVReview review={review} />
     </PageTemplate>
   );
 };

@@ -7,7 +7,7 @@ import { useQuery } from 'react-query';
 import AddToFavouritesIcon from '../components/cardIcons/addToFavourites'
 
 const UpcomingMoviesPage = (props) => {
-  const {  data, error, isLoading, isError }  = useQuery('upcoming', getUpcoming)
+  const {  data, error, isLoading, isError }  = useQuery('upcomingMovies', getUpcoming)
 
   //using the home page code here
   if (isLoading) {
