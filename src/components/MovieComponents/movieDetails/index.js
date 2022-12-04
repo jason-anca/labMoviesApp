@@ -9,7 +9,7 @@ import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews"
-import { Paper } from "@mui/material";
+import { color } from "@mui/system";
 
 const root = {
     display: "flex",
@@ -18,19 +18,22 @@ const root = {
     listStyle: "none",
     padding: 1.5,
     margin: 0,
+    background: "#333231"
 };
-const chip = { margin: 0.5 };
+
+const chip = { margin: 0.5, background: "white", color: "black"};
 
 const MovieDetails = ({ movie }) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
+    <Paper sx= {{background: "#333231"}}>
     <>
-      <Typography variant="h5" component="h3" >
+      <Typography variant="h5" component="h3" sx= {{color: "white"}}>
         Overview
       </Typography>
 
-      <Typography variant="h6" component="p">
+      <Typography variant="h6" component="p" sx= {{color: "white"}}>
         {movie.overview}
       </Typography>
 
@@ -48,16 +51,18 @@ const MovieDetails = ({ movie }) => {
         ))}
       </Paper>
       <Paper component="ul" sx={root}>
-        <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
+        <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} sx={{background: "white"}}/>
         <Chip
           icon={<MonetizationIcon />}
           label={`${movie.revenue.toLocaleString()}`}
+          sx={{background: "white"}}
         />
         <Chip
-          icon={<StarRate />}
+          icon={<StarRate sx= {{color: "yellow"}}/>}
           label={`${movie.vote_average} (${movie.vote_count}`}
+          sx={{background: "white"}}
         />
-        <Chip label={`Released: ${movie.release_date}`} />
+        <Chip label={`Released: ${movie.release_date}`} sx={{background: "white"}} />
       </Paper>
       <Paper 
         component="ul" 
@@ -79,7 +84,8 @@ const MovieDetails = ({ movie }) => {
         sx={{
             position: "fixed",
             bottom: '1em',
-            right: '1em'
+            right: '1em',
+            background: "#6b4604"
         }}
       >
         <NavigationIcon />
@@ -89,6 +95,7 @@ const MovieDetails = ({ movie }) => {
         <MovieReviews movie={movie} />
       </Drawer>
       </>
+      </Paper>
   );
 };
 export default MovieDetails ;

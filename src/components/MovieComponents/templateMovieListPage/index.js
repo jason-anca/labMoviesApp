@@ -24,9 +24,7 @@ function MovieListPageTemplate({ movies, title, action }) {
   };
 
   return (
-    <Paper sx={{
-      background: "#1f1e1d"
-    }}>
+    <Paper sx={{background: "#1f1e1d"}}>
     <Grid container sx={{ padding: '20px' }}>
       <Grid item xs={12}>
         <Header title={title} />
