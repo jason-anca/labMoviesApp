@@ -33,17 +33,18 @@ const FavouriteTVPage = () => {
 
   return (
     <PageTemplate
-      title="Favourite Movies"
+      title="Favourite TV Shows"
       TVs={tv}
       action={(tv) => {
         return (
           <>
             <RemoveFromFavourites tv={tv} />         
+            <WriteReview tv={tv} /> 
           </>
         );
       }}
     />
   );
 };
-//<WriteReview tv={tv} />
+
 export default FavouriteTVPage;
