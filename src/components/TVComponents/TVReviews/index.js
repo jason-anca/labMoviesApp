@@ -28,7 +28,7 @@ export default function TVReviews({ tv }) {
           <TableRow>
             <TableCell >Author</TableCell>
             <TableCell align="center">Excerpt</TableCell>
-            <TableCell align="right">More</TableCell>
+            {/* <TableCell align="right">More</TableCell> */}
           </TableRow>
         </TableHead>
         <TableBody>
@@ -38,7 +38,7 @@ export default function TVReviews({ tv }) {
                 {r.author}
               </TableCell>
               <TableCell >{excerpt(r.content)}</TableCell>
-              <TableCell >
+              {/* <TableCell >
               <Link
                   to={`/reviews/${r.id}`}
                   state={{
@@ -48,7 +48,7 @@ export default function TVReviews({ tv }) {
                 >
                   Full Review
                 </Link>
-              </TableCell>
+              </TableCell> */}
             </TableRow>
           ))}
         </TableBody>

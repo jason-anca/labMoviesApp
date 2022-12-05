@@ -27,7 +27,7 @@ export default function MovieReviews({ movie }) {
           <TableRow>
             <TableCell >Author</TableCell>
             <TableCell align="center">Excerpt</TableCell>
-            <TableCell align="right">More</TableCell>
+            {/* <TableCell align="right">More</TableCell> */}
           </TableRow>
         </TableHead>
         <TableBody>
@@ -36,9 +36,9 @@ export default function MovieReviews({ movie }) {
               <TableCell component="th" scope="row">
                 {r.author}
               </TableCell>
-              <TableCell >{excerpt(r.content)}</TableCell>
-              <TableCell >
-              <Link
+              <TableCell >{r.content}</TableCell>
+              {/* <TableCell > */}
+              {/* <Link
                   to={`/reviews/${r.id}`}
                   state={{
                       review: r,
@@ -47,7 +47,7 @@ export default function MovieReviews({ movie }) {
                 >
                   Full Review
                 </Link>
-              </TableCell>
+              </TableCell> */}
             </TableRow>
           ))}
         </TableBody>
