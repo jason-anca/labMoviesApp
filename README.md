@@ -61,15 +61,19 @@ e.g.
 
 ### UI Design.
 
-[ Insert screenshots of the __new app pages__ you developed (including modified existing pages), Have an appropriate caption for each one (see example below).
-
-![ ](./images/detail.png)
-
->Shows detailed information on a movie. Clicking the 'Reviews' floating action button will display extracts from critic reviews.
-
-![ ](./images/review.png)
-
->Shows the full review for a movie.
+![ ](./images/favouriteMovies.png)
+![ ](./images/favouriteTVShows.png)
+![ ](./images/homePage.png)
+![ ](./images/movieDetails.png)
+![ ](./images/movieWriteReview.png)
+![ ](./images/movieReviews.png)
+![ ](./images/popularMovies.png)
+![ ](./images/popularTVShows.png)
+![ ](./images/topRatedMovies.png)
+![ ](./images/upcomingMovies.png)
+![ ](./images/TVShowDetails.png)
+![ ](./images/TVShowReviews.png)
+![ ](./images/TVShowWriteReview.png)
 
 ### Routing.
 
