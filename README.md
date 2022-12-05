@@ -57,10 +57,6 @@ e.g.
 
 ### Component catalogue.
 
-[ Insert a screenshot from the Storybook UI, and highlight the stories that relate to your __new/modified components__ - see the example screenshot below.] .......
-
-e.g.
-
 ![](./images/stories.png)
 
 ### UI Design.
